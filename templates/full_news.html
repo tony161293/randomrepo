@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>News</title>
+</head>
+<style>
+body
+{
+	margin:0;
+	padding:0;
+	font-family:font-family:Arial, Helvetica, sans-serif;
+}
+#heading
+{
+	padding-left:15px;
+	margin-top:5px;
+	border-bottom:double;
+	border-bottom-color:#06F;}
+#image
+{
+	margin:5px 0px 0px 0px;
+	padding:10px	 383px 0px 383px;
+	}
+.clear
+{
+	clear:both;}
+#content
+{
+	padding-left:15px;
+	margin-top:25px;
+	width:100%;
+	height:auto;
+	background-color:none;
+}
+</style>
+<body>
+{% block general %}
+<div style="width:1366px">
+{% block heading %}
+<div id="heading" style="color:#06F;">
+<h2>{{item.newsHead}}</h2>
+</div>
+{% endblock %}
+{% block image %}
+<div id="image">
+{% load staticfiles %}
+{% if item.news_image %}
+<img src="News/templates/static/{{item.news_image}}" width="500"; style="border-radius:3px;"/>
+{% endif %}
+</div>
+{% endblock %}
+{% block content %}
+<div id="content">
+{{item.newsContent}}
+</div>
+{% endblock %}
+</div>
+{% endblock %}
+</body>
+</html>
